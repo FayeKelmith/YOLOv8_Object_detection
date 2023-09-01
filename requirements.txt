@@ -2,3 +2,4 @@ ultralytics
 transformers
 datasets
 torch
+opencv-python
