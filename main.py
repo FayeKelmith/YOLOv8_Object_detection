@@ -42,8 +42,9 @@ def detection(frame):
     return frame
 
 #the image preprocessor
-def image_processor():
-    img = cv2.imread('dataset/room.jpg')
+#src = 'dataset/room.jpg'
+def image_processor(src):
+    img = cv2.imread(src)
     img = cv2.resize(img,(0,0), fx =0.2,fy =0.2)
     img = detection(img)
     cv2.imshow("Detected",img)
