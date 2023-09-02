@@ -52,6 +52,9 @@ def image_processor():
 #the video prepropcessor
 def video_processor():
     vid = cv2.VideoCapture('dataset/people.mp4')
+
+def live_video_processor():
+    vid = cv2.VideoCapture(0)
     while(vid.isOpened()):
         ret,frame = vid.read()
         
@@ -63,6 +66,7 @@ def video_processor():
             break;
     vid.release()
 
-video_processor()
+live_video_processor() 
+#video_processor()
 #image_processor()
     
