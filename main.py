@@ -42,7 +42,7 @@ def detection(frame):
     return frame
 
 #the image preprocessor
-#src = 'dataset/room.jpg'
+src = 'dataset/room.jpg'
 def image_processor(src):
     img = cv2.imread(src)
     img = cv2.resize(img,(0,0), fx =0.2,fy =0.2)
@@ -53,6 +53,16 @@ def image_processor(src):
 #the video prepropcessor
 def video_processor():
     vid = cv2.VideoCapture('dataset/people.mp4')
+    while(vid.isOpened()):
+        ret,frame = vid.read()
+        
+        if ret is not False:
+            img = detection(frame)
+            cv2.imshow('Video',img)
+            
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break;
+    vid.release()
 
 def live_video_processor():
     vid = cv2.VideoCapture(0)
@@ -69,5 +79,5 @@ def live_video_processor():
 
 live_video_processor() 
 #video_processor()
-#image_processor()
+#image_processor(src)
     
